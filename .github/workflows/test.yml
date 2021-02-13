@@ -24,6 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -W ignore -m pip install --upgrade pip
+          python -W ignore -m pip install pytest
 
       - name: Test with pytest
         run: |
