@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "${TEST_NO_PASSPORT}"
           pytest -sv
-          export TEST_NO_PASSPORT='false'
+          echo "TEST_NO_PASSPORT='false'" >> $GITHUB_ENV
           pytest -sv
           echo "${TEST_NO_PASSPORT}"
           pytest -sv
