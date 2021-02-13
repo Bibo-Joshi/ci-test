@@ -29,11 +29,11 @@ jobs:
       - name: Test with pytest
         run: |
           echo "${TEST_NO_PASSPORT}"
-          pytest -sv -k TestStuff
+          python foo.py
           export TEST_NO_PASSPORT='false'
-          pytest -sv -k TestStuff
+          python foo.py
           echo "${TEST_NO_PASSPORT}"
-          pytest -sv -k TestStuff
+          python foo.py
         env:
           TEST_BUILD: "true"
           TEST_NO_PASSPORT: "true"
