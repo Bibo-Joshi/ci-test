@@ -1,0 +1,3 @@
+
+class CustomWarning(Warning):
+    pass

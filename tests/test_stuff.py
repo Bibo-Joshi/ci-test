@@ -1,5 +1,8 @@
-import os
+import warnings
+
+from package import CustomWarning
+
 
 class TestStuff:
     def test_env_var(self):
-        print(repr(os.getenv('TEST_NO_PASSPORT', 'NO SUCH ENVVAR')))
+        warnings.warn('Hi there', category=CustomWarning)

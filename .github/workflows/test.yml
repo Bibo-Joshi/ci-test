@@ -29,13 +29,5 @@ jobs:
 
       - name: Test with pytest
         run: |
-          echo "${TEST_NO_PASSPORT}"
-          pytest -sv
-          echo "TEST_NO_PASSPORT='false'" >> $GITHUB_ENV
-          pytest -sv
-          echo "${TEST_NO_PASSPORT}"
-          pytest -sv
-        env:
-          TEST_BUILD: "true"
-          TEST_NO_PASSPORT: "true"
+          pytest -v
         shell: bash --noprofile --norc {0}
