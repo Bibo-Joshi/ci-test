@@ -1,0 +1,36 @@
+name: GitHub Actions
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches: 
+      - master
+
+jobs:
+  pytest:
+    name: pytest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: False
+    steps:
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -W ignore -m pip install --upgrade pip
+
+      - name: Test with pytest
+        run: |
+          echo "${TEST_NO_PASSPORT}"
+          echo "TEST_NO_PASSPORT='false'" >> $GITHUB_ENV
+          echo "${TEST_NO_PASSPORT}"
+        env:
+          TEST_BUILD: "true"
+          TEST_NO_PASSPORT: "true"
+        shell: bash --noprofile --norc {0}
